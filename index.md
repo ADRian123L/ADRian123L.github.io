@@ -22,7 +22,13 @@ To advance this work, Dr. Han takes an interdisciplinary and human-centered appr
 
 ## About My Project
 
-Project description goes here.
+This summer, I will be working on a project to develop a fog screen for robots, allowing them to communicate through spatial augmented reality (AR) in environments without conventional projectable surfaces. This project continues the work my lab partners and I began during the spring semester. We successfully designed and built a working prototype of the fog screen, which consists of a fog machine, eight fans, and a projector. The fog machine is mounted on the base of a Fetch robot. However, the fog screen machine had some flaws that needed addressing. The fog machine was not powerful enough to create a dense and lasting fog, and the projected image was unclear. We are working to improve the fog screen machine.
+
+After closely examining the prototype, my lab partners and I hypothesized that modifying several design aspects could improve the fog screen machine. We thought that narrowing the fog nozzle would increase the density of the fog. We also believed that narrowing the fans' output nozzles would increase the air pressure and improve the fog's stability. We experimented to test these hypotheses and determined that there is a positive correlation between narrowing the fog nozzle and increasing the length of the usable fog – fog that we can project images onto.
+
+Moreover, we believe that replacing the fog machine with a more powerful one would improve the fog screen machine. We also think that using more powerful fans would increase the air pressure and improve the fog's stability.
+
+We started designing a new housing for the fog screen machine. By the end of the summer, we expect to have a machine that can project clear images onto a dense and lasting fog screen. We plan to publish our research papers at the ICRA 2025 conference.
 
 [My Final Report](files/finalreport.pdf)
 

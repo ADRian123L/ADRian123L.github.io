@@ -1,289 +1,707 @@
 ---
 ---
 
-//
-// IMPORTS
-//
-
 @import "reset";
 @import "variables";
-// Syntax highlighting @import is at the bottom of this file
 
-/**************/
-/* BASE RULES */
-/**************/
+// ============================================
+// BASE
+// ============================================
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 html {
-  font-size: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: $nav-height + 16px;
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  font-family: $sans;
+  color: $dark;
+  background: $white;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
+  max-width: $container-width;
   margin: 0 auto;
-  max-width: 740px;
-  padding: 0 10px;
+  padding: 0 24px;
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
-
-  line-height: 1.7;
-  margin: 1em 0 15px;
-  padding: 0;
-
-  @include mobile {
-    line-height: 1.4;
-  }
-}
-
-h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
-  }
-}
-
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 18px;
-  color: $gray;
-}
-
-p {
-  margin: 15px 0;
-}
-
 a {
-  color: $blue;
+  color: $accent;
   text-decoration: none;
-	cursor: pointer;
-  &:hover, &:active {
-    color: $blue;
+  transition: color $transition;
+
+  &:hover {
+    color: $accent-dark;
   }
-}
-
-ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
 }
 
 img {
   max-width: 100%;
 }
 
-// Fixes images in popup boxes from Google Translate
-.gmnoprint img {
-  max-width: none;
+// ============================================
+// NAVBAR
+// ============================================
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $nav-height;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color $transition, box-shadow $transition;
+
+  &.scrolled {
+    border-bottom-color: $light;
+    box-shadow: $shadow-sm;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
 }
 
-.date {
-  font-style: italic;
-  color: $gray;
-}
-
-// Specify the color of the selection
-::-moz-selection {
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.125rem;
   color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
+  letter-spacing: -0.01em;
 
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/*********************/
-/* LAYOUT / SECTIONS */
-/*********************/
-
-//
-// .masthead
-//
-
-.wrapper-masthead {
-  margin-bottom: 50px;
-}
-
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
-  @include mobile {
-    text-align: center;
+  &:hover {
+    color: $accent;
   }
 }
 
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
-  }
-}
-
-.site-info {
-  float: left;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
-
-  @include mobile {
-    margin: 3px 0;
-  }
-}
-
-nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    color: $mid;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color $transition;
 
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
+    &:hover {
+      color: $black;
+    }
+
+    &:last-child {
+      background: $black;
+      color: $white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.8125rem;
+
+      &:hover {
+        background: $accent;
+      }
+    }
+  }
+
+  @include mobile {
+    display: none;
+    position: absolute;
+    top: $nav-height;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: $white;
+    padding: 16px 24px;
+    gap: 0;
+    border-bottom: 1px solid $light;
+    box-shadow: $shadow-md;
+
+    &.active {
+      display: flex;
+    }
+
+    a {
+      padding: 12px 0;
+      font-size: 1rem;
+
+      &:last-child {
+        margin-top: 8px;
+        text-align: center;
+      }
     }
   }
 }
 
-//
-// .main
-//
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
 
-.posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
-    font-style: italic;
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: $dark;
+    border-radius: 1px;
+    transition: transform $transition, opacity $transition;
   }
 
-  .comments {
-    margin-top: 10px;
+  &.active {
+    span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
   }
 
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
+  @include mobile {
+    display: flex;
   }
 }
 
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+// ============================================
+// HERO
+// ============================================
+
+.hero {
+  padding: ($nav-height + 80px) 0 80px;
+  background: linear-gradient(135deg, $lighter 0%, $white 50%, $accent-light 100%);
+
+  @include mobile {
+    padding: ($nav-height + 48px) 0 48px;
+  }
 }
 
-footer {
-  padding: 20px 0;
+.hero-content {
+  max-width: 640px;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $black;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 12px;
+
+    @include mobile {
+      font-size: 2.25rem;
+    }
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: $accent;
+  font-weight: 500;
+  margin: 0 0 16px;
+
+  @include mobile {
+    font-size: 1.1rem;
+  }
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: $mid;
+  line-height: 1.7;
+  margin: 0 0 32px;
+
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+// ============================================
+// BUTTONS
+// ============================================
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all $transition;
+  cursor: pointer;
+  border: none;
   text-align: center;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
-@import "svg-icons";
+.btn-primary {
+  background: $black;
+  color: $white;
+
+  &:hover {
+    background: $accent;
+    color: $white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: $dark;
+  border: 1.5px solid $light;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+    transform: translateY(-1px);
+  }
+}
+
+// ============================================
+// SECTIONS
+// ============================================
+
+.section {
+  padding: 80px 0;
+
+  @include mobile {
+    padding: 56px 0;
+  }
+}
+
+.section-alt {
+  background: $lighter;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $black;
+  margin: 0 0 40px;
+  letter-spacing: -0.02em;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: $accent;
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+
+  @include mobile {
+    font-size: 1.5rem;
+    margin-bottom: 32px;
+  }
+}
+
+// ============================================
+// TIMELINE (Experience)
+// ============================================
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: $light;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -32px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $white;
+  border: 3px solid $accent;
+  z-index: 1;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $black;
+    margin: 0;
+  }
+}
+
+.timeline-date {
+  font-size: 0.875rem;
+  color: $mid;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.timeline-company {
+  color: $mid;
+  font-size: 0.9375rem;
+  margin: 4px 0 12px;
+}
+
+.timeline-content {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 0.9375rem;
+      color: $dark;
+      line-height: 1.6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $accent;
+      }
+    }
+  }
+}
+
+// ============================================
+// CARDS (Projects)
+// ============================================
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: $white;
+  border: 1px solid $light;
+  border-radius: $radius-lg;
+  padding: 28px;
+  transition: transform $transition, box-shadow $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: $black;
+    margin: 8px 0 12px;
+    line-height: 1.4;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+
+    li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 0.8125rem;
+      color: $dark;
+      line-height: 1.6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $mid;
+      }
+    }
+  }
+}
+
+.card-tag {
+  display: inline-block;
+  background: $accent-light;
+  color: $accent-dark;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  span {
+    background: $lighter;
+    color: $mid;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+}
+
+// ============================================
+// EDUCATION
+// ============================================
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.edu-item {
+  background: $lighter;
+  border-radius: $radius-lg;
+  padding: 28px;
+  border: 1px solid $light;
+
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: $black;
+    margin: 0 0 4px;
+  }
+}
+
+.edu-degree {
+  font-size: 0.9375rem;
+  color: $accent;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.edu-meta {
+  font-size: 0.8125rem;
+  color: $mid;
+  margin: 0 0 12px;
+}
+
+.edu-detail {
+  font-size: 0.8125rem;
+  color: $dark;
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+// ============================================
+// SKILLS
+// ============================================
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.skill-group {
+  h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $mid;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 12px;
+  }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  span {
+    background: $white;
+    color: $dark;
+    border: 1px solid $light;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all $transition;
+
+    &:hover {
+      border-color: $accent;
+      color: $accent;
+      background: $accent-light;
+    }
+  }
+}
+
+// ============================================
+// AWARDS
+// ============================================
+
+.awards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: $light;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $light;
+}
+
+.award-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: $white;
+  gap: 16px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.award-info {
+  h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $black;
+    margin: 0 0 2px;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    color: $mid;
+    margin: 0;
+  }
+}
+
+.award-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: nowrap;
+
+  @include mobile {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+.award-amount {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $accent;
+}
+
+.award-date {
+  font-size: 0.75rem;
+  color: $mid;
+}
+
+// ============================================
+// FOOTER
+// ============================================
+
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid $light;
+  background: $white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: $mid;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+
+  a {
+    color: $mid;
+    transition: color $transition;
+
+    &:hover {
+      color: $accent;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+// ============================================
+// UTILITIES
+// ============================================
+
+::selection {
+  background: $accent-light;
+  color: $black;
+}

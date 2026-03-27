@@ -1,37 +1,213 @@
 ---
 layout: default
-title: Summer 2024 DREU Project Site
+title: Adrian Lozada
 ---
 
-* TOC
-{:toc}
+<section class="hero" id="about">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Adrian Lozada</h1>
+      <p class="hero-subtitle">M.S. Computational Science & Engineering @ Georgia Tech</p>
+      <p class="hero-description">I build high-performance computing systems, parallel algorithms, and intelligent software. My work spans HPC, distributed systems, robotics, and machine learning.</p>
+      <div class="hero-actions">
+        <a href="files/resume.pdf" class="btn btn-primary" target="_blank">View Resume</a>
+        <a href="#experience" class="btn btn-outline">See My Work</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-## About Me
+<section class="section" id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
 
-Hello! My name is Adrian Lozada, and I am a junior studying computer engineering at the University of South Florida (USF). I am passionate about artificial intelligence (AI) models and algorithms that improve human-robot interactions (HRI). My ultimate goal is to integrate robotics into society seamlessly, enhancing our daily lives and improving safety through innovative technology.
-I am currently working on a project that aims to develop a fog screen for robots, enabling them to communicate through spatial augmented reality (AR) in environments that do not have conventional projectable surfaces. This summer, I am excited to be part of the CRA-WP DREU program, where I hope to expand my research under the guidance of Dr. Zhao Han and explore new opportunities where technology can meet human needs.
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Software Engineer Intern</h3>
+            <span class="timeline-date">May 2025 - Aug 2025</span>
+          </div>
+          <p class="timeline-company">Orion Defense Solutions L.L.C. (Remote)</p>
+          <ul>
+            <li>Built and deployed a Python/FastAPI automation platform integrating LangChain and SQL-backed internal systems, reducing project cycle time by ~8 hours.</li>
+            <li>Containerized platform microservices using Docker and Kubernetes, enabling rolling updates and eliminating ~7 hours of manual setup per week.</li>
+          </ul>
+        </div>
+      </div>
 
-## About My Mentor
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Undergraduate Researcher</h3>
+            <span class="timeline-date">Jan 2024 - May 2025</span>
+          </div>
+          <p class="timeline-company">Reality, Autonomy, Robot Experience (RARE) Lab, USF &mdash; Tampa, FL</p>
+          <ul>
+            <li>Published two first-author papers at ACM/IEEE HRI 2025 (25% acceptance rate) on autonomous fog-screen communication systems.</li>
+            <li>Developed ROS nodes in C++ to synchronize Fetch robot behavior, achieving reliable distributed actuation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Zhao Han is an Assistant Professor of Computer Science and Engineering at the University of South Florida. He leads the Reality, Autonomy, and Robot Experience (RARE) Lab.
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
 
-Dr. Han’s research lies broadly in human-robot interaction (HRI), augmented reality (AR), robotics, and AI. He focuses on designing, developing, and evaluating novel robotic systems and interactions, for embodied robots to be more capable and understandable while interacting, collaborating, and teaming up with humans.
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag">HPC</div>
+        <h3>High-Performance Parallel Computing</h3>
+        <ul>
+          <li>Parallelized dense matrix kernels using OpenMP in C++, achieving near-linear <strong>16x speedup</strong> at 16 threads on GT's PACE/ICE cluster.</li>
+          <li>Accelerated a heat equation PDE solver on an NVIDIA H100 via CUDA shared memory tiling, achieving up to <strong>83.9x speedup</strong>.</li>
+          <li>Implemented MPI-parallel Monte Carlo simulation scaling to 64 processes with <strong>99.7% parallel efficiency</strong>.</li>
+          <li>Applied Roofline performance modeling to classify SpMV, stencil, and 3D-FFT kernels on Intel and AMD architectures.</li>
+        </ul>
+        <div class="card-tags">
+          <span>C++</span><span>OpenMP</span><span>CUDA</span><span>MPI</span>
+        </div>
+      </div>
 
-To advance this work, Dr. Han takes an interdisciplinary and human-centered approach, developing broad expertise in robot explanations for trust, projector-based and head-worn AR for communication, mobile manipulation for real-world evaluation, cognitive status-informed references, robot failures for robustness, and more.
+      <div class="card">
+        <div class="card-tag">Robotics</div>
+        <h3>Autonomous Ground Vehicle</h3>
+        <ul>
+          <li>Led a team of 7 to design and build an autonomous vehicle on Raspberry Pi, mentoring peers in Linux development and conducting code reviews.</li>
+          <li>Designed and deployed a Flask backend with SQLAlchemy to expose REST endpoints for robot status, logs, and commands.</li>
+        </ul>
+        <div class="card-tags">
+          <span>Python</span><span>Flask</span><span>SQLAlchemy</span><span>Raspberry Pi</span>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="card-tag">ML</div>
+        <h3>GNN-Based Fraud Detection</h3>
+        <ul>
+          <li>Developed a Graph Neural Network in PyTorch to classify fraudulent financial transactions, achieving <strong>91% accuracy</strong> on real-world datasets.</li>
+          <li>Preprocessed graph data with NetworkX, extracting structural features (centrality, clustering coefficients) to improve model performance.</li>
+        </ul>
+        <div class="card-tags">
+          <span>PyTorch</span><span>NetworkX</span><span>Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-## About My Project
+<section class="section" id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
 
-This summer, I will be working on a project to develop a fog screen for robots, allowing them to communicate through spatial augmented reality (AR) in environments without conventional projectable surfaces. This project continues the work my lab partners and I began during the spring semester. We successfully designed and built a working prototype of the fog screen, which consists of a fog machine, eight fans, and a projector. The fog machine is mounted on the base of a Fetch robot. However, the fog screen machine had some flaws that needed addressing. The fog machine was not powerful enough to create a dense and lasting fog, and the projected image was unclear. We are working to improve the fog screen machine.
+    <div class="edu-grid">
+      <div class="edu-item">
+        <h3>Georgia Institute of Technology</h3>
+        <p class="edu-degree">M.S. Computational Science and Engineering</p>
+        <p class="edu-meta">Expected Dec 2026 &bull; GPA: 3.33/4.0</p>
+        <p class="edu-detail">Coursework: High Performance Parallel Computing, Numerical Linear Algebra, Modeling and Simulation</p>
+      </div>
 
-After closely examining the prototype, my lab partners and I hypothesized that modifying several design aspects could improve the fog screen machine. We thought that narrowing the fog nozzle would increase the density of the fog. We also believed that narrowing the fans' output nozzles would increase the air pressure and improve the fog's stability. We experimented to test these hypotheses and determined that there is a positive correlation between narrowing the fog nozzle and increasing the length of the usable fog – fog that we can project images onto.
+      <div class="edu-item">
+        <h3>University of South Florida</h3>
+        <p class="edu-degree">B.S. Computer Engineering, <em>summa cum laude</em></p>
+        <p class="edu-meta">Aug 2021 - May 2025 &bull; GPA: 3.9/4.0</p>
+        <p class="edu-detail">Honors: FLIT-GAP Scholar, Bright Futures Scholar</p>
+        <p class="edu-detail">Coursework: Analysis and Design of Algorithms, Data Structures, Social Networks, Computer Architecture</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-Moreover, we believe that replacing the fog machine with a more powerful one would improve the fog screen machine. We also think that using more powerful fans would increase the air pressure and improve the fog's stability.
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
 
-We started designing a new housing for the fog screen machine. By the end of the summer, we expect to have a machine that can project clear images onto a dense and lasting fog screen. We plan to publish our research papers at the ICRA 2025 conference.
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span>Python</span><span>C/C++</span><span>SQL</span><span>Bash/Zsh</span><span>JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Parallel / HPC</h4>
+        <div class="skill-tags">
+          <span>MPI</span><span>OpenMP</span><span>CUDA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Tools</h4>
+        <div class="skill-tags">
+          <span>Git</span><span>Docker</span><span>Kubernetes</span><span>ROS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Systems / Areas</h4>
+        <div class="skill-tags">
+          <span>Data Structures & Algorithms</span><span>Distributed Systems</span><span>HPC</span><span>Unix/Linux</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Libraries</h4>
+        <div class="skill-tags">
+          <span>PyTorch</span><span>NumPy</span><span>Pandas</span><span>FastAPI</span><span>Flask</span><span>SQLAlchemy</span><span>LangChain</span><span>NetworkX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-[My Final Report](files/finalreport.pdf)
+<section class="section" id="awards">
+  <div class="container">
+    <h2 class="section-title">Awards</h2>
 
-## My Blog
-
-[My Blog](blog.html)
+    <div class="awards-list">
+      <div class="award-item">
+        <div class="award-info">
+          <h4>UR2PhD Technical Conference Travel Award</h4>
+          <p>Computing Research Association (CRA)</p>
+        </div>
+        <div class="award-meta">
+          <span class="award-amount">$2,000</span>
+          <span class="award-date">Mar 2025</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-info">
+          <h4>Tampa Conference Presentation Grant Program</h4>
+          <p>CPGP</p>
+        </div>
+        <div class="award-meta">
+          <span class="award-amount">$700</span>
+          <span class="award-date">Mar 2025</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-info">
+          <h4>NSF Distributed Research Experiences for Undergraduates</h4>
+          <p>DREU</p>
+        </div>
+        <div class="award-meta">
+          <span class="award-amount">$7,000</span>
+          <span class="award-date">May 2024 - Aug 2024</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-info">
+          <h4>Florida Bright Futures Scholarship</h4>
+          <p>100% of Tuition</p>
+        </div>
+        <div class="award-meta">
+          <span class="award-amount">Full Tuition</span>
+          <span class="award-date">Aug 2021 - May 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

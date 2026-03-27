@@ -10,8 +10,8 @@ title: Adrian Lozada
       <p class="hero-subtitle">M.S. Computational Science & Engineering @ Georgia Tech</p>
       <p class="hero-description">I build high-performance computing systems, parallel algorithms, and intelligent software. My work spans HPC, distributed systems, robotics, and machine learning.</p>
       <div class="hero-actions">
-        <a href="files/resume.pdf" class="btn btn-primary" target="_blank">View Resume</a>
-        <a href="#experience" class="btn btn-outline">See My Work</a>
+        <a href="#experience" class="btn btn-primary">See My Work</a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
       </div>
     </div>
   </div>

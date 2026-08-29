@@ -10,9 +10,8 @@ $accent-light: #dbeafe;
 
 // Neutrals
 $black: #0f172a;
-$darker: #1e293b;
 $dark: #334155;
-$mid: #64748b;
+$mid: #5b667a;        // AA-compliant on white, $lighter, and $accent-light
 $light: #e2e8f0;
 $lighter: #f1f5f9;
 $white: #ffffff;
@@ -29,7 +28,6 @@ $radius-lg: 12px;
 
 // Shadows
 $shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-$shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
 $shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
 

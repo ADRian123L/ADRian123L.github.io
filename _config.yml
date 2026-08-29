@@ -1,36 +1,55 @@
-# Site settings
-name: Adrian Lozada
-description: M.S. Computational Science & Engineering | Georgia Tech
+# ============================================
+# SITE SETTINGS
+# ============================================
+title: Adrian Lozada
+description: >-
+  M.S. Computational Science & Engineering at Georgia Tech.
+  High-performance computing, parallel algorithms, LLM tooling, and robotics.
+avatar: /images/profile.png
 
-avatar: https://adrian123l.github.io/images/profile.png
+url: https://adrian123l.github.io
+baseurl: ""
+lang: en
+timezone: America/New_York
 
 footer-links:
   email: lozada22@icloud.com
   linkedin: lozada-adrian
   github: ADRian123L
 
-url: https://adrian123l.github.io
-baseurl: ""
+# ============================================
+# BUILD
+# ============================================
+# GitHub Pages silently applies jekyll-theme-primer unless a theme key is present.
+theme: null
 
-permalink: /:title/
-version: v1.2.0
+plugins:
+  - jekyll-sitemap   # not enabled by default on GitHub Pages; must be listed
+
+# Keep static downloads out of the sitemap.
+defaults:
+  - scope:
+      path: files
+    values:
+      sitemap: false
+
+sass:
+  style: compressed
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: highlight
 
-sass:
-  style: :expanded
-
-gems:
-  - jekyll-sitemap
-  - jekyll-feed
-
+# NOTE: on GitHub Pages (Jekyll 3.x) a user `exclude` REPLACES the built-in
+# defaults rather than extending them, so Gemfile/Gemfile.lock/vendor must stay
+# listed here explicitly even though Jekyll 4 would add them for you.
 exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
-  - CNAME
+  - vendor
+  - notebooks
+  - SocialNetworks.ipynb
